@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Polls App</title>
+</head>
+<body>
+    <div style = "background-color: grey; width:40%; padding: auto; text-decoration: none;">
+    {% if latest_question_list %}
+        <ul>
+            # iterate through latest_question_list defined in views - index
+        {% for question in latest_question_list %}
+            # use question above to access the question_text variable in the Question class
+            <li><a href = "{% url 'polls:details' question.id %}">{{ question.question_text }}
+            </a>
+            </li>
+        {% endfor %}  
+    {% else %}
+        <p> No polls found </p>
+    {% endif %}
+
+
+    </div>
+</body>
+</html>
